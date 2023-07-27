@@ -1,15 +1,8 @@
 <div class="cm-users">
-  <h1>{{pageTitle}}</h1>
-  <div class="divide-x-8"></div>
-  <div class="p-4 flex flex-row gap-8" *ngIf="users.length">
-    <div class="user-list flex flex-col">
-      <div *ngFor="let user of users">
-        <p class="text-lg text-red-800">{{user.LastName + " " + user.FirstName}}</p>
+  <h1>{{ pageTitle }}</h1>
+  <div class="user-list flex flex-col">
+    <div *ngFor="let user of users">
+      <p class="text-lg">{{ user.LastName + " " + user.FirstName }}</p>
       </div>
-    </div>
-    <div class="create-user-form">
-      <input type="text" [(ngModel)]="lastName" />
-      <input type="text" [(ngModel)]="firstName" />
-    </div>
-  </div>
+      </div>
 </div>
