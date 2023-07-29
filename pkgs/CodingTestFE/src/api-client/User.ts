@@ -14,14 +14,13 @@ export class UserServiceApiClient {
   constructor(private http: HttpClient) { }
   private userUrl = 'data/json/users.json';
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.userUrl);
-
-    // .pipe(tap(data => console.log('getUsers response', data)),
-    //   catchError<User[], User[]>(this.handleError));
+    return this.http
+      .get<User[]>(this.userUrl)
+      .pipe(catchError(this.handleError));
   }
 
-  // suppose to handle error here
-  // handleError(err: HttpErrorResponse) {
-
-  // }
+  handleError(error: HttpErrorResponse) {
+    console.error(error);
+    return [];
+  }
 }
