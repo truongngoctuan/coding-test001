@@ -15,7 +15,7 @@ namespace CodingTest.Core.Features.Users
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()
                 .MaximumLength(100).WithMessage("{PropertyName} must not exceed 100 characters.");
-        }
-	}
+    }
+  }
 }
 

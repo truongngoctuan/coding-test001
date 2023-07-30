@@ -13,8 +13,8 @@ namespace CodingTest.Core.Exceptions
 			foreach(var validationError in validationResult.Errors)
 			{
 				ValidationErrors.Add(validationError.ErrorMessage);
-			}
-		}
+      }
+    }
 	}
 }
 

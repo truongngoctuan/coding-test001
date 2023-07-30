@@ -5,6 +5,6 @@ namespace CodingTest.Core.Contracts.Persistences
 {
 	public interface IUserRepository : IAsyncRepository<UserEntity>
 	{
-	}
+  }
 }
 

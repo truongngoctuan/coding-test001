@@ -10,9 +10,9 @@ namespace CodingTest.Core
 		public static IServiceCollection AddApplicationService(this IServiceCollection services)
 		{
 			services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+      services.AddMediatR(Assembly.GetExecutingAssembly());
 			return services;
-        }
+    }
 	}
 }
 

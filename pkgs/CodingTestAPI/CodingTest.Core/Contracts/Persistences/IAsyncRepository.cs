@@ -9,8 +9,8 @@ namespace CodingTest.Core.Contracts.Persistences
 		Task<IEnumerable<T>> GetAllAsync();
 		Task<T> GetById(Guid id);
 		Task<T> AddAsync(T entity);
-        Task UpdateAsync(T entity);
-        Task DeleteAsync(Guid id);
-    }
+    Task UpdateAsync(T entity);
+    Task DeleteAsync(Guid id);
+  }
 }
 
