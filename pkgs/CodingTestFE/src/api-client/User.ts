@@ -7,6 +7,11 @@ export type User = {
   lastName: string;
 };
 
+export type UserCreation = {
+  firstName: string;
+  lastName: string;
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,6 +22,12 @@ export class UserServiceApiClient {
   getUsers(): Observable<User[]> {
     return this.http
       .get<User[]>(this.userUrl)
+      .pipe(catchError(this.handleError));
+  }
+
+  addUser(user: UserCreation) {
+    return this.http
+      .post<User>(this.userUrl, user)
       .pipe(catchError(this.handleError));
   }
 

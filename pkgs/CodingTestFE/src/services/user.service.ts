@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User, UserServiceApiClient } from 'src/api-client/User';
+import { User, UserCreation, UserServiceApiClient } from 'src/api-client/User';
 
 @Injectable({
   providedIn: 'root',
@@ -10,5 +10,9 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.userServiceApiClient.getUsers();
+  }
+
+  addUser(user: UserCreation) {
+    return this.userServiceApiClient.addUser(user);
   }
 }
