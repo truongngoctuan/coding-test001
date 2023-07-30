@@ -10,6 +10,7 @@ namespace CodingTest.Core.Profiles
 		public UserProfile()
 		{
 			CreateMap<UserEntity, UserVM>();
+			CreateMap<CreateUserRequest, UserEntity>();
 		}
 	}
 }
