@@ -2,6 +2,7 @@ using System.Reflection;
 using MediatR;
 using CodingTest.Core;
 using CodingTest.Persistence.JsonFile;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddApplicationService();
 builder.Services.AddPersistenceService();
+builder.Services.AddDbContext<BookDBContext>(opt =>
+    opt.UseInMemoryDatabase("TodoList"));
 
 var app = builder.Build();
 
