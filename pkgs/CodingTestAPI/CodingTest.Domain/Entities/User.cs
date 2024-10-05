@@ -3,7 +3,7 @@ using CodingTest.Domain.Common;
 
 namespace CodingTest.Domain.Entities
 {
-  public class UserEntity: AuditableEntity
+  public class User : AuditableEntity
   {
     public Guid UserId { get; set; }
     public string? FirstName { get; set; }

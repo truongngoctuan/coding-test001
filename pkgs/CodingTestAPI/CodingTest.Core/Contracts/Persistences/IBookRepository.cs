@@ -2,7 +2,7 @@
 
 namespace CodingTest.Core.Contracts.Persistences
 {
-    public interface IUserRepository : IAsyncRepository<User>
+    public interface IBookRepository : IAsyncRepository<Book>
 	{
   }
 }

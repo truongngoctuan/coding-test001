@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using MediatR;
 
 namespace CodingTest.Core.Features.Users
 {

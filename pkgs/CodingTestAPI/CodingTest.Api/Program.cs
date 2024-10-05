@@ -15,7 +15,7 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddApplicationService();
 builder.Services.AddPersistenceService();
-builder.Services.AddDbContext<BookDBContext>(opt =>
+builder.Services.AddDbContext<BookDbContext>(opt =>
     opt.UseInMemoryDatabase("TodoList"));
 
 var app = builder.Build();

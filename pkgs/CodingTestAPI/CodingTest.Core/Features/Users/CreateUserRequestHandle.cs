@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using CodingTest.Core.Contracts.Persistences;
 using CodingTest.Domain.Entities;
-using MediatR;
 
 namespace CodingTest.Core.Features.Users
 {
-  public class CreateUserRequestHandle : IRequestHandler<CreateUserRequest, UserVM>
+    public class CreateUserRequestHandle : IRequestHandler<CreateUserRequest, UserVM>
   {
     private IMapper _mapper { get; set; }
     private IUserRepository _userRepository { get; set; }
@@ -27,7 +25,7 @@ namespace CodingTest.Core.Features.Users
         throw new Exceptions.ValidationException(validationResult);
       }
 
-      var userToSave = _mapper.Map<UserEntity>(request);
+      var userToSave = _mapper.Map<User>(request);
       userToSave.UserId = Guid.NewGuid();
 
       var user = await _userRepository.AddAsync(userToSave);

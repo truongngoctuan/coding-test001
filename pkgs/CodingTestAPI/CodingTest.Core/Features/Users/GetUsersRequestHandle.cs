@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using CodingTest.Core.Contracts.Persistences;
-using MediatR;
 
 namespace CodingTest.Core.Features.Users
 {
-  public class GetUsersRequestHandle : IRequestHandler<GetUsersRequest, IEnumerable<UserVM>>
+    public class GetUsersRequestHandle : IRequestHandler<GetUsersRequest, IEnumerable<UserVM>>
 	{
     private IMapper _mapper { get; set; }
     private IUserRepository _userRepository { get; set; }

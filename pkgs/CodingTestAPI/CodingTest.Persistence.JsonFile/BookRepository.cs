@@ -4,24 +4,24 @@ using JsonFlatFileDataStore;
 
 namespace CodingTest.Persistence.JsonFile
 {
-  public class UserRepository : IUserRepository
+  public class BookRepository : IBookRepository
 	{
-		public UserRepository()
+		public BookRepository()
 		{
 		}
 
-    IDocumentCollection<User> getCollection()
+    IDocumentCollection<Book> getCollection()
     {
       // Open database (create new if file doesn't exist)
-      var store = new DataStore("data.json");
+      var store = new DataStore("data-book.json");
 
       // Get employee collection
-      var collection = store.GetCollection<User>();
+      var collection = store.GetCollection<Book>();
 
       return collection;
     }
 
-    public async Task<User> AddAsync(User entity)
+    public async Task<Book> AddAsync(Book entity)
     {
       var collection = getCollection();
       await collection.InsertOneAsync(entity);
@@ -33,18 +33,18 @@ namespace CodingTest.Persistence.JsonFile
       throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<User>> GetAllAsync()
+    public Task<IEnumerable<Book>> GetAllAsync()
     {
       var collection = getCollection();
-      return Task.FromResult<IEnumerable<User>>(collection.AsQueryable().AsEnumerable<User>());
+      return Task.FromResult<IEnumerable<Book>>(collection.AsQueryable().AsEnumerable<Book>());
     }
 
-    public Task<User> GetById(Guid id)
+    public Task<Book> GetById(Guid id)
     {
       throw new NotImplementedException();
     }
 
-    public Task UpdateAsync(User entity)
+    public Task UpdateAsync(Book entity)
     {
       throw new NotImplementedException();
     }

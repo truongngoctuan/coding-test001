@@ -1,9 +1,6 @@
-﻿using System;
-using FluentValidation;
-
-namespace CodingTest.Core.Features.Users
+﻿namespace CodingTest.Core.Features.Users
 {
-	public class CreateUserValidator: AbstractValidator<CreateUserRequest>
+	public class CreateUserValidator : AbstractValidator<CreateUserRequest>
 	{
 		public CreateUserValidator()
 		{
@@ -11,11 +8,12 @@ namespace CodingTest.Core.Features.Users
 				.NotEmpty().WithMessage("{PropertyName} is required.")
 				.NotNull()
 				.MaximumLength(100).WithMessage("{PropertyName} must not exceed 100 characters.");
-            RuleFor(p => p.LastName)
-                .NotEmpty().WithMessage("{PropertyName} is required.")
-                .NotNull()
-                .MaximumLength(100).WithMessage("{PropertyName} must not exceed 100 characters.");
-    }
-  }
+
+			RuleFor(p => p.LastName)
+					.NotEmpty().WithMessage("{PropertyName} is required.")
+					.NotNull()
+					.MaximumLength(100).WithMessage("{PropertyName} must not exceed 100 characters.");
+		}
+	}
 }
 

@@ -1,18 +1,14 @@
-﻿using System;
-using System.Reflection;
-using MediatR;
+﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CodingTest.Core
+namespace CodingTest.Core;
+
+public static class ApplicationRegistration
 {
-	public static class ApplicationRegistration
+	public static IServiceCollection AddApplicationService(this IServiceCollection services)
 	{
-		public static IServiceCollection AddApplicationService(this IServiceCollection services)
-		{
-			services.AddAutoMapper(Assembly.GetExecutingAssembly());
-      services.AddMediatR(Assembly.GetExecutingAssembly());
-			return services;
-    }
+		services.AddAutoMapper(Assembly.GetExecutingAssembly());
+		services.AddMediatR(Assembly.GetExecutingAssembly());
+		return services;
 	}
 }
-

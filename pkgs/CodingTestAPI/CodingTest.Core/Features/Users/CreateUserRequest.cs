@@ -1,8 +1,6 @@
-﻿using MediatR;
-
-namespace CodingTest.Core.Features.Users
+﻿namespace CodingTest.Core.Features.Users
 {
-  public class CreateUserRequest : UserVM, IRequest<UserVM>
+    public class CreateUserRequest : UserVM, IRequest<UserVM>
   {
   }
 }

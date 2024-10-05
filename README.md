@@ -37,6 +37,5 @@ In the backend side, Clean architeture is applied to provide enterprise applicat
 * [AutoMapper](https://automapper.org/)
 * [FluentValidation](https://fluentvalidation.net/)
 
-
 ## References
 * Clean architecture [github repository](https://github.com/jasontaylordev/CleanArchitecture)
