@@ -1,30 +1,25 @@
 ﻿using CodingTest.Core.Contracts.Persistences;
 using CodingTest.Domain.Entities;
 using JsonFlatFileDataStore;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodingTest.Persistence.JsonFile
 {
   public class BookRepository : IBookRepository
-	{
-		public BookRepository()
-		{
-		}
+  {
+    private readonly BookDbContext context;
 
-    IDocumentCollection<Book> getCollection()
+    public BookRepository(BookDbContext context)
     {
-      // Open database (create new if file doesn't exist)
-      var store = new DataStore("data-book.json");
-
-      // Get employee collection
-      var collection = store.GetCollection<Book>();
-
-      return collection;
+      this.context = context;
     }
+
+    DbSet<Book> getCollection() => context.Books;
 
     public async Task<Book> AddAsync(Book entity)
     {
       var collection = getCollection();
-      await collection.InsertOneAsync(entity);
+      await collection.AddAsync(entity);
       return entity;
     }
 
@@ -33,10 +28,10 @@ namespace CodingTest.Persistence.JsonFile
       throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Book>> GetAllAsync()
+    public Task<IQueryable<Book>> GetAllAsync()
     {
       var collection = getCollection();
-      return Task.FromResult<IEnumerable<Book>>(collection.AsQueryable().AsEnumerable<Book>());
+      return Task.FromResult(collection.AsNoTracking());
     }
 
     public Task<Book> GetById(Guid id)

@@ -33,10 +33,10 @@ namespace CodingTest.Persistence.JsonFile
       throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<User>> GetAllAsync()
+    public Task<IQueryable<User>> GetAllAsync()
     {
       var collection = getCollection();
-      return Task.FromResult<IEnumerable<User>>(collection.AsQueryable().AsEnumerable<User>());
+      return Task.FromResult(collection.AsQueryable().AsEnumerable().AsQueryable());
     }
 
     public Task<User> GetById(Guid id)

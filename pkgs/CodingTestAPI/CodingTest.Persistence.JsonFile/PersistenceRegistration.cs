@@ -8,6 +8,7 @@ namespace CodingTest.Persistence.JsonFile
     public static IServiceCollection AddPersistenceService(this IServiceCollection services)
     {
       services.AddScoped<IUserRepository, UserRepository>();
+      services.AddScoped<IBookRepository, BookRepository>();
       return services;
     }
   }

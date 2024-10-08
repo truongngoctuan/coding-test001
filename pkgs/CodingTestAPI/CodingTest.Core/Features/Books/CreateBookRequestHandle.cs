@@ -8,11 +8,11 @@ namespace CodingTest.Core.Features.Books;
 public class CreateBookRequestHandle : IRequestHandler<CreateBookRequest, BookDTO>
 {
   private IMapper _mapper { get; set; }
-  private IBookRepository _BookRepository { get; set; }
+  private IBookRepository _bookRepository { get; set; }
   public CreateBookRequestHandle(IMapper mapper, IBookRepository BookRepository)
   {
     _mapper = mapper;
-    _BookRepository = BookRepository;
+    _bookRepository = BookRepository;
   }
 
   public async Task<BookDTO> Handle(CreateBookRequest request, CancellationToken cancellationToken)
@@ -27,7 +27,7 @@ public class CreateBookRequestHandle : IRequestHandler<CreateBookRequest, BookDT
     var bookToSave = _mapper.Map<Book>(request);
     // bookToSave.Id = Guid.NewGuid();
 
-    var Book = await _BookRepository.AddAsync(bookToSave);
+    var Book = await _bookRepository.AddAsync(bookToSave);
     return _mapper.Map<BookDTO>(Book);
   }
 }
