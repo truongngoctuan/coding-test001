@@ -1,6 +1,5 @@
 ﻿using CodingTest.Core.Contracts.Persistences;
 using CodingTest.Domain.Entities;
-using JsonFlatFileDataStore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CodingTest.Persistence.JsonFile

@@ -17,8 +17,10 @@ public class CreateBookRequestHandle : IRequestHandler<CreateBookRequest, BookDT
 
   public async Task<BookDTO> Handle(CreateBookRequest request, CancellationToken cancellationToken)
   {
+    // TODO can a validator be in controller or in the domain layer?
     var validator = new CreateBookValidator();
     var validationResult = await validator.ValidateAsync(request);
+    //TODO return error message as port of the response
     if (validationResult.Errors.Count > 0)
     {
       throw new Exceptions.ValidationException(validationResult);
